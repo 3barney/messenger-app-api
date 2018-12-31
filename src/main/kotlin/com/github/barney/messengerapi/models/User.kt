@@ -11,27 +11,36 @@ import javax.validation.constraints.Size
 @Entity
 @Table(name="`user`")
 @EntityListeners(UserListener::class)
-class User {
+class User(
 
     @Column(unique = true)
     @Size(min = 2)
-    var username: String = ""
+    var username: String = "",
 
     @Size(min = 8, max = 15)
-    var phoneNumber: String = ""
+    var phoneNumber: String = "",
 
     @Size(min = 60, max = 60)
-    var password: String = ""
+    var password: String = "",
 
-    var status: String = "available"
+    var status: String = "available",
 
     @Pattern(regexp = "\\A(activated|deactivated)\\z")
-    var accountStatus: String = "activated"
+    var accountStatus: String = "activated",
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    var id: Long = 0
+    var id: Long = 0,
 
     @DateTimeFormat
     var createdAt: Date = Date.from(Instant.now())
+) {
+    // Collection of Sent Messages
+    @OneToMany(mappedBy = "sender", targetEntity = Message::class)
+    private var sentMessages: Collection<Message>? = null
+
+    // Collection of Recieved Messages
+    @OneToMany(mappedBy = "recipient", targetEntity = Message::class)
+    private var receivedMessage: Collection<Message>? = null
+
 }
