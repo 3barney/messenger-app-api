@@ -2,6 +2,7 @@ package com.github.barney.messengerapi.filters
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.github.barney.messengerapi.security.AccountCredentials
+import com.github.barney.messengerapi.service.TokenAuthenticationService
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.Authentication
@@ -38,6 +39,6 @@ class JWTLoginFilter(url: String, authManager: AuthenticationManager):
     @Throws(IOException::class, ServletException::class)
     override fun successfulAuthentication(request: HttpServletRequest, response: HttpServletResponse, chain: FilterChain, authResult: Authentication) {
         super.successfulAuthentication(request, response, chain, authResult)
-        TokenAuthenticationService.addAuthentication(res, authResult.name)
+        TokenAuthenticationService.addAuthentication(response, authResult.name)
     }
 }
