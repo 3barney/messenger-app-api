@@ -1,5 +1,7 @@
 package com.github.barney.messengerapi.service
 
+import com.github.barney.messengerapi.exceptions.MessageEmptyException
+import com.github.barney.messengerapi.exceptions.MessageRecipientInvalidException
 import com.github.barney.messengerapi.models.Conversation
 import com.github.barney.messengerapi.models.Message
 import com.github.barney.messengerapi.models.User
@@ -21,7 +23,7 @@ class MessageServiceImpl(
 
             if (!messageText.isEmpty()) {
                 val conversation: Conversation = if (conversationService.conversationExists(sender, recipient)) {
-                    conversationService.getConversation(sender, recipient)
+                    conversationService.getConversation(sender, recipient) as Conversation
                 } else {
                     conversationService.createConversation(sender, recipient)
                 }

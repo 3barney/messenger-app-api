@@ -1,5 +1,8 @@
 package com.github.barney.messengerapi.service
 
+import com.github.barney.messengerapi.exceptions.InvalidUserIdException
+import com.github.barney.messengerapi.exceptions.UserStatusEmptyException
+import com.github.barney.messengerapi.exceptions.UsernameUnavailableException
 import com.github.barney.messengerapi.models.User
 import com.github.barney.messengerapi.repositories.UserRepository
 import org.springframework.stereotype.Service

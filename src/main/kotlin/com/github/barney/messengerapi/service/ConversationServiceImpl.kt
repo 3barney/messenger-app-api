@@ -1,5 +1,6 @@
 package com.github.barney.messengerapi.service
 
+import com.github.barney.messengerapi.exceptions.ConversationIdInvalidException
 import com.github.barney.messengerapi.models.Conversation
 import com.github.barney.messengerapi.models.User
 import com.github.barney.messengerapi.repositories.ConversationRepository
