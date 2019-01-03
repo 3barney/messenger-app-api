@@ -41,6 +41,6 @@ class User(
 
     // Collection of Recieved Messages
     @OneToMany(mappedBy = "recipient", targetEntity = Message::class)
-    private var receivedMessage: Collection<Message>? = null
+    private var receivedMessages: Collection<Message>? = null
 
 }

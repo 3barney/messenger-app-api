@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.stereotype.Component
 import java.util.ArrayList
 
-
+@Component
 class AppUserDetailsService(val userRepository: UserRepository): UserDetailsService {
 
     @Throws(UsernameNotFoundException::class)

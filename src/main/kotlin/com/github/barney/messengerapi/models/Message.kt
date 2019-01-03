@@ -6,6 +6,7 @@ import java.util.*
 import javax.persistence.*
 
 @Entity
+@Table(name="`message`")
 class Message (
 
     @ManyToOne(optional = false)    // Relationship isnt optional

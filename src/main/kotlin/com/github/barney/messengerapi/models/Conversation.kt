@@ -6,12 +6,14 @@ import java.util.*
 import javax.persistence.*
 
 @Entity
+@Table(name="`conversation`")
 class Conversation(
 
         @ManyToOne(optional = false)
         @JoinColumn(name = "sender_id", referencedColumnName = "id")
         var sender: User? = null,
 
+        @ManyToOne(optional = false)
         @JoinColumn(name = "recipient_id", referencedColumnName = "id")
         var recipient: User? = null,
 
