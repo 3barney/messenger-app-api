@@ -20,7 +20,7 @@ class Message (
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "conversation_id", referencedColumnName = "id")
-    var converstion: Conversation? = null,
+    var conversation: Conversation? = null,
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
