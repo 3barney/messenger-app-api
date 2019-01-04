@@ -6,7 +6,7 @@ import java.util.*
 import javax.persistence.*
 
 @Entity
-@Table(name="`conversation`")
+@Table(name="`conversation`", schema = "")
 class Conversation(
 
         @ManyToOne(optional = false)

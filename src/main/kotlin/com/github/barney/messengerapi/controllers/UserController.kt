@@ -17,4 +17,9 @@ class UserController(val userServiceImpl: UserServiceImpl, val userRepository: U
         val user = userServiceImpl.attemptRegistration(userDetails)
         return ResponseEntity.ok(user)
     }
+
+    @GetMapping
+    fun returnItems(): String {
+        return "Hello World"
+    }
 }
