@@ -9,7 +9,7 @@ import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
 
 @Entity
-@Table(name="`user`")
+@Table(name="`user`", schema = "")
 @EntityListeners(UserListener::class)
 class User(
 
@@ -41,6 +41,6 @@ class User(
 
     // Collection of Recieved Messages
     @OneToMany(mappedBy = "recipient", targetEntity = Message::class)
-    private var receivedMessage: Collection<Message>? = null
+    private var receivedMessages: Collection<Message>? = null
 
 }

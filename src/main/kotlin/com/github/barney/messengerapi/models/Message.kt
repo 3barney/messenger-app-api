@@ -6,6 +6,7 @@ import java.util.*
 import javax.persistence.*
 
 @Entity
+@Table(name="`message`", schema = "")
 class Message (
 
     @ManyToOne(optional = false)    // Relationship isnt optional
@@ -20,7 +21,7 @@ class Message (
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "conversation_id", referencedColumnName = "id")
-    var converstion: Conversation? = null,
+    var conversation: Conversation? = null,
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
